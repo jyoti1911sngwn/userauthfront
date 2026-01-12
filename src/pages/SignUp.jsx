@@ -140,7 +140,7 @@ const SignUp = () => {
           type="button"
           style={buttonStyle}
           onClick={() => {
-            window.location.href = "http://localhost:5000/google";
+            window.location.href = "https://express-backend-h8tr.onrender.com/google";
           }}
         >
           Sign Up With Google
