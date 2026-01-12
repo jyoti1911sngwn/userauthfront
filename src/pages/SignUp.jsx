@@ -13,8 +13,10 @@ const SignUp = () => {
 
   const validateInputs = () => {
     const newErrors = {};
-    if (cred.name.length < 6) newErrors.name = "Name must be at least 6 characters.";
-    if (cred.password.length < 6) newErrors.password = "Password must be at least 6 characters.";
+    if (cred.name.length < 6)
+      newErrors.name = "Name must be at least 6 characters.";
+    if (cred.password.length < 6)
+      newErrors.password = "Password must be at least 6 characters.";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -71,13 +73,21 @@ const SignUp = () => {
         >
           <Link
             to="/"
-            style={{ textDecoration: "none", color: "#667eea", fontWeight: 500 }}
+            style={{
+              textDecoration: "none",
+              color: "#667eea",
+              fontWeight: 500,
+            }}
           >
             Login
           </Link>
           <Link
             to="/signup"
-            style={{ textDecoration: "none", color: "#667eea", fontWeight: 500 }}
+            style={{
+              textDecoration: "none",
+              color: "#667eea",
+              fontWeight: 500,
+            }}
           >
             Sign Up
           </Link>
@@ -126,6 +136,16 @@ const SignUp = () => {
         <button type="submit" style={buttonStyle}>
           Sign Up
         </button>
+        <button
+          type="button"
+          style={buttonStyle}
+          onClick={() => {
+            window.location.href =
+              "https://express-backend-5lzy.onrender.com/google";
+          }}
+        >
+          Sign Up With Google
+        </button>
 
         {message && (
           <p
@@ -160,6 +180,7 @@ const buttonStyle = {
   borderRadius: "10px",
   border: "none",
   backgroundColor: "#667eea",
+  marginBottom: "10px",
   color: "#fff",
   fontSize: "16px",
   fontWeight: "500",
