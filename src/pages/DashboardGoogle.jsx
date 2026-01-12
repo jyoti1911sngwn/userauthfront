@@ -4,28 +4,24 @@ import { jwtDecode } from "jwt-decode";
 const DashboardGoogle = () => {
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const token = params.get("token");
+useEffect(() => {
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get("token");
 
-    if (token) {
-      const decodedUser = jwtDecode(token);
-
-      localStorage.setItem("token", token);
-      localStorage.setItem("user", JSON.stringify(decodedUser));
-
-      setUser(decodedUser);
-
-      // optional: clean URL
-      window.history.replaceState({}, document.title, "/auth-success");
-    } else {
-      // fallback if user refreshes page
-      const storedUser = localStorage.getItem("user");
-      if (storedUser) {
-        setUser(JSON.parse(storedUser));
-      }
+  if (token) {
+    const decoded = jwtDecode(token);
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", JSON.stringify(decoded));
+    setUser(decoded);
+    window.history.replaceState({}, document.title, "/auth-success");
+  } else {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
     }
-  }, []);
+  }
+}, []);
+
 
   if (!user) {
     return <p style={{ textAlign: "center" }}>Loading...</p>;
