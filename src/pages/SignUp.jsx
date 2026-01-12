@@ -27,7 +27,7 @@ const SignUp = () => {
 
     try {
       const response = await fetch(
-        "https://express-backend-h8tr.onrender.com/api/auth/createuser",
+        "https://express-backend-5lzy.onrender.com/api/auth/createuser",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -140,7 +140,7 @@ const SignUp = () => {
           type="button"
           style={buttonStyle}
           onClick={() => {
-            window.location.href = "https://express-backend-h8tr.onrender.com/google";
+            window.location.href = "https://express-backend-5lzy.onrender.com/google";
           }}
         >
           Sign Up With Google
