@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import React, {  useState } from "react";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [cred, setCred] = useState({ name: "", email: "", password: "" });
   const [message, setMessage] = useState(null);
   const [errors, setErrors] = useState({});
-
   const onChange = (e) => {
     setCred({ ...cred, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" }); // Clear specific error
@@ -140,8 +140,7 @@ const SignUp = () => {
           type="button"
           style={buttonStyle}
           onClick={() => {
-            window.location.href =
-              "https://express-backend-5lzy.onrender.com/google";
+            window.location.href = "https://express-backend-5lzy.onrender.com/google";
           }}
         >
           Sign Up With Google
